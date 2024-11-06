@@ -47,7 +47,7 @@ class ProjectController extends Controller
                 'success' => false,
                 'code' => 404,
                 'message' => 'Project not found',
-            ]);
+            ], 404);
         }
 
         

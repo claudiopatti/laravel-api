@@ -20,7 +20,26 @@ class Project extends Model
         'type_id',
     ];
 
+    protected $appends = [
+        'full_cover_url'
+    ];
+
+    // Costum Attributes
+
+    public function getFullCoverUrlAttribute()
+    {
+        $fullCoverUrl = null;
+
+        if ($this->cover) {
+            $fullCoverUrl = asset('storage/'.$this->cover);
+        }
+
+        return $fullCoverUrl;
+    }
+
+
     // Relationships
+
     public function type()
     {
         return $this->belongsTo(Type::class);

@@ -34,6 +34,10 @@ class ProjectController extends Controller
     {
         $project = Project::with('type', 'technologies')->where('slug', $slug)->first();
 
+        // if ($project->cover) {
+        //     $project->cover = asset('storage/'.$project->cover);
+        // }
+
         if ($project) {
             return response()->json([
                 'success' => true,
